@@ -54,11 +54,11 @@ def welcome():
     '''
 
 # Cargar los DataFrames desde los archivos parquet
-games=pd.read_parquet("games.parquet")
+games=pd.read_parquet("datos/games.parquet")
 #items=pd.read_parquet("items.parquet")
-reviews=pd.read_parquet("reviews.parquet")
-items=pd.read_parquet("items.parquet")
-new_df = pd.read_parquet('modelo.parquet')
+reviews=pd.read_parquet("datos/reviews.parquet")
+items=pd.read_parquet("datos/items.parquet")
+new_df = pd.read_parquet('datos/modelo.parquet')
 
 #modelo.pkl para la función 6
 with open ('datos/modelo.pkl', 'rb') as archivo:
