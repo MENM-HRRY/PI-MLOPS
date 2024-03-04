@@ -1,17 +1,67 @@
-import pandas as pd
-import fastapi
-from fastapi import FastAPI
-import pyarrow.parquet as pq
 import pickle
+import pandas as pd
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+import pyarrow.parquet as pq
+
+def welcome():
+    '''
+    Biemvenida a los usuarios
+    
+    Returns:
+    str: Pagina web de bienvenida.
+    '''
+    return '''
+    <html>
+        <head>
+            <link rel="shortcut icon" href="https://fastapi.tiangolo.com/img/favicon.png">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+            <title>PI MLOPS memn</title>
+            <style>
+                body {
+                    background-color:#000000 ;
+                    font-family: "Poppins", sans-serif;
+                    padding: 20px;
+                }
+                h1 {
+                    color: #ffffff;
+                    text-align: center;
+                }
+                p {
+                    color: #ffffff;
+                    text-align: center;
+                    font-size: 18px;
+                    margin-top: 20px;
+                }
+                
+            </style>
+        </head>
+        <body>
+            <p align='center'>
+            <img src ="https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png" style="display: inline-block;">
+            <p>
+            <h1>Henrry labs Deploy Render Fast API para la plataforma Steam</h1>
+            <p>Machine Learning Operations (MLOps).</p>
+            <br>
+            <p>Haz click aquí <br> <a href=" http://127.0.0.1:8000/docs"><img alt="FAST API" src="https://store.akamai.steamstatic.com/public/shared/images/header/logo_steam.svg?t=962016" style="display: inline-block; width: 250px;"></a><br></p>
+            <br>
+            <p> Visita mi repositorio en <a href="https://github.com/MENM-HRRY/PI_MLOPS.git"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-black?style=flat-square&logo=github"></a></p>
+            
+        </body>
+    </html>
+    '''
 
 # Cargar los DataFrames desde los archivos parquet
-games=pd.read_parquet("games.parquet")
+games=pd.read_parquet("datos/games.parquet")
 #items=pd.read_parquet("items.parquet")
-reviews=pd.read_parquet("reviews.parquet")
-new_df = pd.read_parquet('modelo.parquet')
+reviews=pd.read_parquet("datos/reviews.parquet")
+items=pd.read_parquet("datos/items.parquet")
+new_df = pd.read_parquet('datos/modelo.parquet')
 
 #modelo.pkl para la función 6
-with open ('modelo.pkl', 'rb') as archivo:
+with open ('datos/modelo.pkl', 'rb') as archivo:
     modelo = pickle.load(archivo)
 
 #funcion 1
@@ -82,9 +132,12 @@ def userdata(user_id):
 
     return resultados
 
-'''
+
 #funcion 3
 merged_items_games=pd.merge(games,items,on="item_id")
+
+
+
 
 def UserForGenre(genero):
     if not genero in merged_items_games.columns:
@@ -107,20 +160,19 @@ def UserForGenre(genero):
         Horas_por_año[clave_formateada] = valor_formateado
 
     return {"Usuario con más horas jugadas": usur_mas_horas, "Horas jugadas por año": Horas_por_año}
-'''
 
 
 
 #funcion 4
-
-def best_developer_year(año: int):
-    # Realizar la unión de los DataFrames
-    merged_df = pd.merge(reviews, games, on='item_id')
-    if año not in merged_df['año'].unique():
+# Realizar la unión de los DataFrames
+merged_df = pd.merge(reviews, games, on='item_id')
+    
+def best_developer_year(year: int):
+    if year not in merged_df['año'].unique():
         return {'error': 'El año especificado no existe.'}
 
     # Filtrar los juegos por año y por recomendación positiva
-    df_year = merged_df[(merged_df['año'] == año) & (merged_df['recommend'] == True) & (merged_df['sentiment_analysis'] == 2)]
+    df_year = merged_df[(merged_df['año'] == year) & (merged_df['recommend'] == True) & (merged_df['sentiment_analysis'] == 2)]
 
     # Contar el número de juegos recomendados por desarrollador y devolver los tres primeros desarrolladores
     top_desarrolladores = df_year['developer'].value_counts().head(3).index.tolist()
