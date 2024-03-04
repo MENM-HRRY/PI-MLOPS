@@ -16,8 +16,8 @@ En el siguiente proyecto de Machine Learning se tiene como objetivo poner en pra
 
 ## Descripciòn
 
-Para entender la estructura de los datos y poder preparar los insumos para la siguiente etapa de desarrollo, mediante el cauderno [ETL](documentos/1ETL_.ipynb) abordo el tema de la limpieza de los dataset's eliminando valores nulos y convirtiendo en ceros los NA, ademas de la transformacion de archivos Json a formato parquet para optimizar las consultas.
-En el cauderno de trabajo [EDA](documentos/2EDA.ipynb) realice el analisis necesario para encontrar las relaciones entre las variables con la finalidad de entender los patrones o las tendecias, por lo que observando la columna de los generos o tipos de juegos decidi utilizar la funciòn para explotar los registros del formato Json a columnas binarias ya que este cambio en la estructura del dataset  me permitìo la construcion de la funcion para la busqueda por genero, ademas de interactuar con los modelos de aprendizaje que me seran de utilidad de la construciòn de las funciones.
+Para entender la estructura de los datos y poder preparar los insumos para la siguiente etapa de desarrollo, mediante el cauderno [ETL](1ETL_.ipynb) abordo el tema de la limpieza de los dataset's eliminando valores nulos y convirtiendo en ceros los NA, ademas de la transformacion de archivos Json a formato parquet para optimizar las consultas.
+En el cauderno de trabajo [EDA](2EDA.ipynb) realice el analisis necesario para encontrar las relaciones entre las variables con la finalidad de entender los patrones o las tendecias, por lo que observando la columna de los generos o tipos de juegos decidi utilizar la funciòn para explotar los registros del formato Json a columnas binarias ya que este cambio en la estructura del dataset  me permitìo la construcion de la funcion para la busqueda por genero, ademas de interactuar con los modelos de aprendizaje que me seran de utilidad de la construciòn de las funciones.
 
 ··El RETO:
 
@@ -59,4 +59,3 @@ Ejemplo de retorno: {'Valve' : [Negative = 182, Positive = 278]}
 En el script de python llamado  [funciones](funciones.py) se encuentra desarrolladas paso a paso cada unas de las consignas anteriores con la finalidad de que mediante la herramienta Fast Api  se puedan invocar las funciones para su despliegue en la web.
 #PI_MLOPS_STEAM-MEMN
 # PI_MLOPS_STEAM-MEMN
-# PI-MLOPS
