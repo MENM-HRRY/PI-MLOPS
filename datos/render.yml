@@ -1,0 +1,27 @@
+services:
+  # A Docker web service
+  - type: web
+    name: fastapi-example
+    runtime: python
+    plan: free
+    autoDeploy: false
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+
+openapi: 3.0.2
+info:
+  title: FastAPI Redirect
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: Redirect to /docs
+      responses:
+        "302":
+          description: Found
+          headers:
+            Location:
+              description: URL to redirect to
+              schema:
+                type: string
+                example: /docs
