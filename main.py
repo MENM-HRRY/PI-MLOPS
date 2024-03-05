@@ -142,7 +142,7 @@ def developer_reviews_analysis(desarrolladora:str):
                 1. Haga clic en "Try it out".<br>
                 2. Ingrese el desarrollador en el cuadro de abajo.<br>
                 3. Utiliza el nombre de la desarrolladora, para consultar el número de votaciones positivas y negativos.<br>
-                4. Ejemplos: ||evcentric||Rivtex||WitchHunter4542||L4M1NAS||js41637||<br>
+                4. Ejemplos: ||evcentric||H1DD3NT3RR0R||diego9031||DemonicWolvz||L4M1NAS||js41637||<br>
                 5. Para cambiar de desrrolladora, copie y pegue de las sugerencias y presione Execute nuevamente.
             </h3>         
         </body>
