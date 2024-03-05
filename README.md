@@ -57,6 +57,6 @@ Ejemplo de retorno: {'Valve' : [Negative = 182, Positive = 278]}
 <br/>
 
 En el script de python llamado  [funciones](funciones.py) se encuentra desarrolladas paso a paso cada unas de las consignas anteriores con la finalidad de que mediante la herramienta Fast Api  se puedan invocar las funciones para su despliegue en la web.
-#PI_MLOPS_STEAM-MEMN
+
+
 # PI_MLOPS_STEAM-MEMN
-# PI-MLOPS
