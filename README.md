@@ -63,5 +63,5 @@ En el script de python llamado  [funciones](funciones.py) se encuentra desarroll
 
 Max Moreno<br>
 Email: [maxenoc@outlook.com](maxenoc@outlook.com)<br>
-[GitHub](https://github.com/MENM-HRRY/PI-MLOPS/edit/main/README.md) <br>
+[GitHub](https://github.com/MENM-HRRY/PI-MLOPS/blob/main/README.md) <br>
 [LinkedIn](https://www.linkedin.com/in/max-enoc-moreno-293a3915b/)
